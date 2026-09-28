@@ -15,12 +15,8 @@ export function Brand({
       className="inline-flex items-center gap-2.5 font-semibold tracking-tight"
       aria-label={`${site.name} home`}
     >
-      <span className="brand-mark" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </span>
-      {!compact && <span data-sidebar-label={collapsible ? "" : undefined} className="text-xl">{site.name}</span>}
+      <img src="/blog/logo.jpeg" alt="" style={{width: '107px', height: '5rem'}}/>
+      {/* {!compact && <span data-sidebar-label={collapsible ? "" : undefined} className="text-xl">{site.name}</span>} */}
     </Link>
   )
 }

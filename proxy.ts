@@ -27,6 +27,7 @@ export const config = {
   matcher: [
     "/",
     "/pricing",
+    "/feedback",
     "/faq",
     "/contact",
     "/blog/:path*",

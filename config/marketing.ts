@@ -10,6 +10,7 @@ export const marketing = {
     { label: "Contact", href: "/contact" },
     { label: "Docs", href: "/docs" },
     { label: "Blog", href: "/blog" },
+    { label: "Feedback", href: "/feedback" },
   ],
   faqs: [
     {
