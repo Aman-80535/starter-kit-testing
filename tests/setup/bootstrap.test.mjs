@@ -175,7 +175,7 @@ test("unhealthy projects resume, while account changes and inaccessible targets 
 
 test("existing installs keep values; missing project identity with receipts blocks replacement", async t => {
   const { root, state, run } = await fixture(t);
-  const env = { ...input, SUPABASE_PROJECT_REF: ref, NEXT_PUBLIC_SUPABASE_URL: `https://${ref}.supabase.co`, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_existing", SUPABASE_SECRET_KEY: "sb_secret_existing", RESEND_FROM_EMAIL: "hello@example.com", APP_NAME: "My app", APP_URL: "http://localhost:4000" };
+  const env = { ...input, SUPABASE_PROJECT_REF: ref, NEXT_PUBLIC_SUPABASE_URL: `https://${ref}.supabase.co`, NEXT_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_existing", SUPABASE_SECRET_KEY: "sb_secret_existing", RESEND_FROM_EMAIL: "hello@example.com", APP_NAME: "My app", APP_URL: "http://localhost:4000" };
   assert.deepEqual((await run({ env })).generated, {});
   assert.deepEqual(state.reads, []);
   await mkdir(join(root, ".kickstart"));

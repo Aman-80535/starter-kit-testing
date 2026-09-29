@@ -14,7 +14,7 @@ async function user(name,token){
   const result=await admin.auth.admin.createUser({email,password,email_confirm:true,user_metadata:{full_name:name,...(token?{workspace_invitation:token}:{})}});
   if(result.error)throw Error('Fixture creation failed');
   users.push(result.data.user.id);
-  const client=createClient(env.NEXT_PUBLIC_SUPABASE_URL,env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,{auth});
+  const client=createClient(env.NEXT_PUBLIC_SUPABASE_URL,env.NEXT_SUPABASE_PUBLISHABLE_KEY,{auth});
   if((await client.auth.signInWithPassword({email,password})).error)throw Error('Fixture sign-in failed');
   clients.push(client);
   return {id:result.data.user.id,email,client};
@@ -42,7 +42,7 @@ try {
   const created=await admin.auth.admin.createUser({email,password,email_confirm:true,user_metadata:{full_name:'Race Invited',workspace_invitation:inviteToken}});
   if(created.error)throw Error('Invited fixture failed');
   const person=created.data.user.id;users.push(person);
-  const c=createClient(env.NEXT_PUBLIC_SUPABASE_URL,env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,{auth});clients.push(c);
+  const c=createClient(env.NEXT_PUBLIC_SUPABASE_URL,env.NEXT_SUPABASE_PUBLISHABLE_KEY,{auth});clients.push(c);
   await c.auth.signInWithPassword({email,password});
   const secondToken=await invite(b,orgB,email);
   assert.equal((await c.rpc('accept_workspace_invitation',{invitation_token:secondToken})).error,null);

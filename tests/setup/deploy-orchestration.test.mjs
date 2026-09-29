@@ -13,7 +13,7 @@ import { executeSetup } from "../../scripts/kickstart/core.mjs";
 const envBase = {
   APP_NAME: "Example", APP_URL: "https://example.com", APP_URL_LIVE: "https://example.com", GITHUB_TOKEN: "github-test-credential", GITHUB_OWNER: "buyer", GITHUB_REPO_NAME: "saas",
   VERCEL_TOKEN: "vercel-test-credential", VERCEL_TEAM_ID: "team_buyer", VERCEL_PROJECT_NAME: "buyer-saas", SUPABASE_PROJECT_REF: "abcdefghijklmnopqrst",
-  NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_example", SUPABASE_SECRET_KEY: "sb_secret_example",
+  NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", NEXT_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_example", SUPABASE_SECRET_KEY: "sb_secret_example",
   SUPABASE_ACCESS_TOKEN: "management-credential", RESEND_API_KEY: "email-credential", RESEND_FROM_EMAIL: "hello@example.com", RESEND_TEST_MODE: "false",
   RESEND_TEMPLATE_WELCOME_ID: "welcome-id", RESEND_TEMPLATE_WORKSPACE_INVITATION_ID: "invitation-id", STRIPE_LIVE_SECRET_KEY: "sk_live_example", STRIPE_TEST_SECRET_KEY: "sk_test_example",
 };

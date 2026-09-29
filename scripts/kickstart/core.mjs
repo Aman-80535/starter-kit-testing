@@ -27,7 +27,7 @@ export async function checkSender(env, api) {
 }
 
 export function validateConfig(env, { bootstrap = false } = {}) {
-  const required = ["APP_URL", "APP_NAME", "SUPABASE_ACCESS_TOKEN", "RESEND_API_KEY", ...(bootstrap ? [] : ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "SUPABASE_PROJECT_REF", "SUPABASE_SECRET_KEY", "RESEND_FROM_EMAIL"])];
+  const required = ["APP_URL", "APP_NAME", "SUPABASE_ACCESS_TOKEN", "RESEND_API_KEY", ...(bootstrap ? [] : ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_SUPABASE_PUBLISHABLE_KEY", "SUPABASE_PROJECT_REF", "SUPABASE_SECRET_KEY", "RESEND_FROM_EMAIL"])];
   const errors = required.filter(key => !env[key]?.trim()).map(key => `${key} is missing. Fill it in .env.`);
   if (!["true", "false"].includes(env.RESEND_TEST_MODE || "false")) errors.push("RESEND_TEST_MODE must be true or false.");
   if (!["true", "false"].includes(env.RESEND_ALLOW_TEST_DEPLOYMENT || "false")) errors.push("RESEND_ALLOW_TEST_DEPLOYMENT must be true or false.");
@@ -38,7 +38,7 @@ export function validateConfig(env, { bootstrap = false } = {}) {
   }
   if (env.SUPABASE_PROJECT_REF && !/^[a-z0-9]{20}$/.test(env.SUPABASE_PROJECT_REF)) errors.push("SUPABASE_PROJECT_REF must identify a hosted Supabase project.");
   if ((!bootstrap || env.NEXT_PUBLIC_SUPABASE_URL) && env.NEXT_PUBLIC_SUPABASE_URL !== `https://${env.SUPABASE_PROJECT_REF}.supabase.co`) errors.push("NEXT_PUBLIC_SUPABASE_URL must match the hosted SUPABASE_PROJECT_REF (https://<ref>.supabase.co).");
-  if (env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY && !env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_")) errors.push("Use a Supabase publishable key, never a secret/service-role key, for the browser.");
+  if (env.NEXT_SUPABASE_PUBLISHABLE_KEY && !env.NEXT_SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_")) errors.push("Use a Supabase publishable key, never a secret/service-role key, for the browser.");
   if (env.SUPABASE_SECRET_KEY && !env.SUPABASE_SECRET_KEY.startsWith("sb_secret_")) errors.push("SUPABASE_SECRET_KEY must be a server-only secret key from this project's API Keys settings.");
   try {
     const url = new URL(env.APP_URL);
@@ -94,7 +94,7 @@ export function createApi(env, fetcher = fetch) {
     management,
     resend, resendList,
     query: (query, readOnly = true) => management("/database/query", { method: "POST", body: JSON.stringify({ query, read_only: readOnly }) }),
-    authSettings: () => request(`${env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/settings`, env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, { headers: { apikey: env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY } }),
+    authSettings: () => request(`${env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/settings`, env.NEXT_SUPABASE_PUBLISHABLE_KEY, { headers: { apikey: env.NEXT_SUPABASE_PUBLISHABLE_KEY } }),
     checkServerKey: async () => {
       await request(`${env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users?page=1&per_page=1`, env.SUPABASE_SECRET_KEY, { headers: { apikey: env.SUPABASE_SECRET_KEY } });
       return "Server-only Auth access verified. No users changed.";

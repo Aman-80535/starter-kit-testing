@@ -17,7 +17,7 @@ async function project() {
   }
   await writeFile(join(path, "package.json"), '{"type":"module"}');
   const source = await readFile(join(root, ".env.example"), "utf8");
-  const values = { APP_URL: "http://127.0.0.1:3000", NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_fake", SUPABASE_PROJECT_REF: "abcdefghijklmnopqrst", SUPABASE_SECRET_KEY: "sb_secret_fake", SUPABASE_ACCESS_TOKEN: "fake-management", RESEND_API_KEY: "fake-resend", RESEND_FROM_EMAIL: "hello@example.com" };
+  const values = { APP_URL: "http://127.0.0.1:3000", NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", NEXT_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_fake", SUPABASE_PROJECT_REF: "abcdefghijklmnopqrst", SUPABASE_SECRET_KEY: "sb_secret_fake", SUPABASE_ACCESS_TOKEN: "fake-management", RESEND_API_KEY: "fake-resend", RESEND_FROM_EMAIL: "hello@example.com" };
   let env = source;
   for (const [key, value] of Object.entries(values)) env = env.replace(new RegExp(`^${key}=.*$`, "m"), `${key}=${value}`);
   await writeFile(join(path, "config/billing-seed.json"), JSON.stringify({ enabled: false }));

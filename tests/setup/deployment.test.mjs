@@ -11,7 +11,7 @@ test("deployment preserves shared Supabase credentials and Resend template ident
   const env = {
     APP_NAME: "Forma", APP_URL: "http://localhost:3000", APP_URL_LIVE: "https://example.com",
     SUPABASE_PROJECT_REF: "abcdefghijklmnopqrst", NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co",
-    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_fake", SUPABASE_SECRET_KEY: "sb_secret_fake",
+    NEXT_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_fake", SUPABASE_SECRET_KEY: "sb_secret_fake",
     SUPABASE_EMAIL_HOOK_SECRET: "v1,whsec_fake", RESEND_FROM_EMAIL: "hello@example.com",
     RESEND_TEMPLATE_WELCOME_ID: "welcome", RESEND_TEMPLATE_VERIFICATION_ID: "verification",
     RESEND_TEMPLATE_PASSWORD_RESET_ID: "reset", RESEND_TEMPLATE_WORKSPACE_INVITATION_ID: "invitation",

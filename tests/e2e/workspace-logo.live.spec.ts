@@ -37,7 +37,7 @@ test("workspace logos: square images, permissions, switcher, replacement and del
   )
   const owner = createClient(
     env.NEXT_PUBLIC_SUPABASE_URL!,
-    env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    env.NEXT_SUPABASE_PUBLISHABLE_KEY!,
     options
   )
   const ids: string[] = []

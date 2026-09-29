@@ -18,7 +18,7 @@ test("hosted onboarding: resume, back/forward, completion, durable skip, failure
   const env = parseEnv(readFileSync(".env", "utf8"))
   if (
     !env.SUPABASE_SECRET_KEY ||
-    !env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    !env.NEXT_SUPABASE_PUBLISHABLE_KEY ||
     !env.HOSTED_TEST_PROJECT_REF ||
     env.HOSTED_TEST_PROJECT_REF !== env.SUPABASE_PROJECT_REF ||
     env.NEXT_PUBLIC_SUPABASE_URL !==
@@ -36,7 +36,7 @@ test("hosted onboarding: resume, back/forward, completion, durable skip, failure
   )
   const customer = createClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    env.NEXT_SUPABASE_PUBLISHABLE_KEY,
     options
   )
   const ids: string[] = []

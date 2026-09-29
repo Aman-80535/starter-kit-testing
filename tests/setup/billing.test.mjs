@@ -113,7 +113,7 @@ test("ambiguous prices fail instead of guessing which buyer price should be sold
 });
 test("global preflight includes Stripe and never provisions after another required service fails",async()=>{
   const f=await fixture();try{
-    const setup=await f.setup();const env={...f.env,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:"sb_publishable_fake",SUPABASE_ACCESS_TOKEN:"fake",RESEND_API_KEY:"fake",RESEND_FROM_EMAIL:"a@example.com"};
+    const setup=await f.setup();const env={...f.env,NEXT_SUPABASE_PUBLISHABLE_KEY:"sb_publishable_fake",SUPABASE_ACCESS_TOKEN:"fake",RESEND_API_KEY:"fake",RESEND_FROM_EMAIL:"a@example.com"};
     const result=await executeSetup({env,probes:[setup.probe,{name:"Resend",run:async()=>{throw new Error("Invalid key");}}],steps:[setup.step]});
     assert.equal(result.status,"blocked");assert.equal(f.remote.writes.length,0);
   }finally{await f.cleanup();}

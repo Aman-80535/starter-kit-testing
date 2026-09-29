@@ -23,7 +23,7 @@ test("Hosted API keys and OAuth: real consent, PKCE, scope, refresh and revocati
   const env = parseEnv(readFileSync(".env", "utf8"))
   if (
     !env.SUPABASE_SECRET_KEY ||
-    !env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    !env.NEXT_SUPABASE_PUBLISHABLE_KEY ||
     !env.APP_URL ||
     !env.HOSTED_TEST_PROJECT_REF ||
     env.HOSTED_TEST_PROJECT_REF !== env.SUPABASE_PROJECT_REF ||
@@ -42,7 +42,7 @@ test("Hosted API keys and OAuth: real consent, PKCE, scope, refresh and revocati
   )
   const userClient = createClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    env.NEXT_SUPABASE_PUBLISHABLE_KEY,
     opts
   )
   const email = `integrations-${randomUUID()}@example.invalid`,
@@ -339,7 +339,7 @@ test("Hosted API keys and OAuth: real consent, PKCE, scope, refresh and revocati
       env.NEXT_PUBLIC_SUPABASE_URL + "/rest/v1/organizations?select=id",
       {
         headers: {
-          apikey: env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+          apikey: env.NEXT_SUPABASE_PUBLISHABLE_KEY,
           Authorization: "Bearer " + tokens.access_token,
         },
       }

@@ -80,7 +80,7 @@ Billing/email subset of the Vercel runtime-only mapping (the complete executable
 | `APP_URL` | `APP_URL_LIVE` |
 | `APP_NAME` | `APP_NAME` |
 | `NEXT_PUBLIC_SUPABASE_URL` | `NEXT_PUBLIC_SUPABASE_URL` |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` |
+| `NEXT_SUPABASE_PUBLISHABLE_KEY` | `NEXT_SUPABASE_PUBLISHABLE_KEY` |
 | `SUPABASE_SECRET_KEY` | `SUPABASE_SECRET_KEY` |
 | `STRIPE_LIVE_SECRET_KEY` | same named value |
 | `RESEND_API_KEY`, `RESEND_FROM_EMAIL` | production sending credentials/address |

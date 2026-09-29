@@ -20,7 +20,7 @@ test("hosted feedback: private report, shared search, votes, mobile menu, and si
   const env = parseEnv(readFileSync(".env", "utf8"))
   if (
     !env.SUPABASE_SECRET_KEY ||
-    !env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    !env.NEXT_SUPABASE_PUBLISHABLE_KEY ||
     !env.HOSTED_TEST_PROJECT_REF ||
     env.HOSTED_TEST_PROJECT_REF !== env.SUPABASE_PROJECT_REF ||
     env.NEXT_PUBLIC_SUPABASE_URL !==
@@ -34,7 +34,7 @@ test("hosted feedback: private report, shared search, votes, mobile menu, and si
     env.SUPABASE_SECRET_KEY,
     { auth: { persistSession: false, autoRefreshToken: false } }
   )
-  const publicKey = env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+  const publicKey = env.NEXT_SUPABASE_PUBLISHABLE_KEY
   const projectUrl = env.NEXT_PUBLIC_SUPABASE_URL
   const ids: string[] = []
   const customers = []

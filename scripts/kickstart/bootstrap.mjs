@@ -5,7 +5,7 @@ import { createInterface } from "node:readline/promises";
 import { createApi, checkSender, digest, validateConfig } from "./core.mjs";
 import { checkAI } from "./ai.mjs";
 
-const projectKeys = ["SUPABASE_PROJECT_REF", "NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "SUPABASE_SECRET_KEY"];
+const projectKeys = ["SUPABASE_PROJECT_REF", "NEXT_PUBLIC_SUPABASE_URL", "NEXT_SUPABASE_PUBLISHABLE_KEY", "SUPABASE_SECRET_KEY"];
 const refPattern = /^[a-z]{20}$/;
 const projectRef = project => project?.ref || project?.id;
 const localOrigin = value => ["localhost", "127.0.0.1"].includes(new URL(value).hostname);
@@ -234,7 +234,7 @@ export async function bootstrapSetup({ root, env: input, checkOnly = false, stat
   env.NEXT_PUBLIC_SUPABASE_URL ||= `https://${ref}.supabase.co`;
   let keys = await management(`/projects/${ref}/api-keys?reveal=true`);
   if (!Array.isArray(keys)) throw new Error("Unexpected Supabase API-key response.");
-  for (const [type, key] of [["publishable", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"], ["secret", "SUPABASE_SECRET_KEY"]]) {
+  for (const [type, key] of [["publishable", "NEXT_SUPABASE_PUBLISHABLE_KEY"], ["secret", "SUPABASE_SECRET_KEY"]]) {
     let value = existingKey(keys, type, env[key]);
     if (!value) {
       if (checkOnly) {

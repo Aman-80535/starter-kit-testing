@@ -164,7 +164,7 @@ test("hosted passwordless signup, scanner-safe confirmation, returning login and
     await expect(page).toHaveURL(/\/dashboard$/)
     const passwordClient = createClient(
       env.NEXT_PUBLIC_SUPABASE_URL,
-      env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+      env.NEXT_SUPABASE_PUBLISHABLE_KEY!,
       { auth: { persistSession: false, autoRefreshToken: false } }
     )
     if (
@@ -193,7 +193,7 @@ test("hosted magic-link invited signup creates only the invited membership", asy
   if (
     !env.APP_URL ||
     !env.SUPABASE_SECRET_KEY ||
-    !env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    !env.NEXT_SUPABASE_PUBLISHABLE_KEY ||
     !env.HOSTED_TEST_PROJECT_REF ||
     env.HOSTED_TEST_PROJECT_REF !== env.SUPABASE_PROJECT_REF ||
     env.NEXT_PUBLIC_SUPABASE_URL !==
@@ -208,7 +208,7 @@ test("hosted magic-link invited signup creates only the invited membership", asy
   )
   const client = createClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    env.NEXT_SUPABASE_PUBLISHABLE_KEY,
     options
   )
   const ids: string[] = []

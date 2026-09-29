@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { validateConfig, executeSetup, migrationQuery, createApi, checkSender } from "../../scripts/kickstart/core.mjs";
 
-const env = { APP_URL: "http://localhost:3000", APP_NAME: "Test", NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_test", SUPABASE_PROJECT_REF: "abcdefghijklmnopqrst", SUPABASE_SECRET_KEY: "sb_secret_fake", SUPABASE_ACCESS_TOKEN: "fake-management-token", RESEND_API_KEY: "fake-resend-key", RESEND_FROM_EMAIL: "hello@example.com" };
+const env = { APP_URL: "http://localhost:3000", APP_NAME: "Test", NEXT_PUBLIC_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", NEXT_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_test", SUPABASE_PROJECT_REF: "abcdefghijklmnopqrst", SUPABASE_SECRET_KEY: "sb_secret_fake", SUPABASE_ACCESS_TOKEN: "fake-management-token", RESEND_API_KEY: "fake-resend-key", RESEND_FROM_EMAIL: "hello@example.com" };
 test("successful provider writes may have an empty 201 response", async () => {
   const api = createApi(env, async () => new Response(null, { status: 201 }));
   assert.equal(await api.management("/secrets", { method: "POST", body: "[]" }), null);
@@ -55,7 +55,7 @@ test("credential rejection is redacted and never includes provider response", as
 test("target mismatch, service keys in browser, and unsafe app URLs are rejected", () => {
   assert.equal(validateConfig(env).length, 0);
   assert.ok(validateConfig({ ...env, NEXT_PUBLIC_SUPABASE_URL: "http://localhost:54321" }).length);
-  assert.ok(validateConfig({ ...env, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "sb_secret_bad" }).length);
+  assert.ok(validateConfig({ ...env, NEXT_SUPABASE_PUBLISHABLE_KEY: "sb_secret_bad" }).length);
   assert.ok(validateConfig({ ...env, APP_URL: "https://example.com/path" }).length);
 });
 test("migration wrapper is atomic, serialized, checksum checked, and safely quotes names", () => {

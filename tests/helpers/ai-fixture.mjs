@@ -23,7 +23,7 @@ export async function aiFixture() {
     const {data,error}=await admin.from('organization_members').select('org_id').eq('user_id',userId).single();
     if(error) throw new Error('AI fixture workspace unavailable.');
     orgId=data.org_id;
-    const user=createClient(env.NEXT_PUBLIC_SUPABASE_URL,env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
+    const user=createClient(env.NEXT_PUBLIC_SUPABASE_URL,env.NEXT_SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
     const signed=await user.auth.signInWithPassword({email,password});if(signed.error)throw new Error('AI fixture login failed.');
     return {env,api,admin,user,userId,orgId,email,password,cleanup};
   } catch(e) {await cleanup();throw e;}

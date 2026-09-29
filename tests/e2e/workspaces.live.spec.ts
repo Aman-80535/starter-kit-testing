@@ -27,7 +27,7 @@ test('workspace invitation verification, recovery, mismatch and email status',as
   const {env,admin}=setup(),ids:string[]=[],contexts=[]
   const password=`Workspace-${randomUUID()}!`,email=`workspace-verify-${randomUUID()}@example.invalid`
   const ownerEmail=`workspace-mail-${randomUUID()}@example.invalid`
-  const client=createClient(env.NEXT_PUBLIC_SUPABASE_URL!,env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}})
+  const client=createClient(env.NEXT_PUBLIC_SUPABASE_URL!,env.NEXT_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}})
   try {
     const owner=await admin.auth.admin.createUser({email:ownerEmail,password,email_confirm:true,user_metadata:{full_name:'Workspace Mail Check'}})
     if(owner.error)throw Error('Fixture account failed')
@@ -155,7 +155,7 @@ test('workspace browser lifecycle: switching, invitations, roles, removal, delet
       const created=await admin.auth.admin.createUser({email,password,email_confirm:true,user_metadata:{full_name:name}})
       if(created.error||!created.data.user)throw Error('Could not create workspace fixture')
       ids.push(created.data.user.id)
-      const client=createClient(env.NEXT_PUBLIC_SUPABASE_URL!,env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}})
+      const client=createClient(env.NEXT_PUBLIC_SUPABASE_URL!,env.NEXT_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}})
       const result=await client.auth.signInWithPassword({email,password});if(result.error)throw Error('Fixture sign-in failed')
       clients.push(client)
     }
