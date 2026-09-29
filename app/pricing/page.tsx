@@ -20,21 +20,23 @@ export default async function PricingPage() {
   const pricing = await getPublicPricing()
   return (
     <MarketingShell>
-      <section className="marketing-container public-page-section">
-        <PageIntro
-          eyebrow="PRICING"
-          title="Your workspace."
-          accent="Your next chapter."
-        >
-          Choose a plan that fits your business. Keep your team together with
-          one simple workspace subscription.
-        </PageIntro>
-        <Pricing {...pricing} />
-        <p className="public-pricing-context">
-          These are application workspace plans. The starter source-code offer
-          is separate.
-        </p>
-      </section>
+     <section className="marketing-container public-page-section">
+  <PageIntro
+    eyebrow="PRICING"
+    title="Simple pricing."
+    accent="Built for product teams."
+  >
+    Choose a plan that fits your team. Collect customer feedback, prioritize
+    requests, and manage your product roadmap in one place.
+  </PageIntro>
+
+  <Pricing {...pricing} />
+
+  <p className="public-pricing-context">
+    Choose the plan that fits your team and start turning customer feedback
+    into better product decisions.
+  </p>
+</section>
       <section className="marketing-container marketing-section marketing-faq">
         <div className="section-heading">
           <span className="marketing-eyebrow">THE DETAILS</span>

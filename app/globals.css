@@ -4,19 +4,11 @@
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 
-/* =========================================================
-   FEEDBACKFLOW — CUSTOM DESIGN SYSTEM
-   Theme: Indigo / Cyan / Slate
-   Typography: Plus Jakarta Sans + Space Grotesk
-   ========================================================= */
-
 @theme inline {
-  /* ---------- Typography ---------- */
-  --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-mono: "Geist Mono", monospace;
 
-  /* ---------- Core Colors ---------- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -44,105 +36,90 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* ---------- Radius ---------- */
-  --radius-sm: 0.45rem;
-  --radius-md: 0.65rem;
-  --radius-lg: 0.9rem;
-  --radius-xl: 1.2rem;
-  --radius-2xl: 1.5rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.6rem;
+  --radius-lg: 0.8rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.35rem;
 }
 
-/* =========================================================
-   LIGHT THEME
-   ========================================================= */
+/* Light theme */
 
 :root {
-  /* Background */
-  --background: oklch(0.975 0.012 250);
-  --foreground: oklch(0.18 0.025 260);
+  --background: #faf9f7;
+  --foreground: #171717;
 
-  /* Cards */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.025 260);
+  --card: #ffffff;
+  --card-foreground: #171717;
 
-  /* Popover */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.025 260);
+  --popover: #ffffff;
+  --popover-foreground: #171717;
 
-  /* Main Brand — Indigo */
-  --primary: oklch(0.52 0.205 270);
-  --primary-foreground: oklch(0.99 0.002 270);
+  --primary: #f57c00;
+  --primary-foreground: #ffffff;
 
-  /* Secondary */
-  --secondary: oklch(0.94 0.025 250);
-  --secondary-foreground: oklch(0.30 0.055 260);
+  --secondary: #f1efeb;
+  --secondary-foreground: #262626;
 
-  /* Muted */
-  --muted: oklch(0.945 0.014 250);
-  --muted-foreground: oklch(0.47 0.025 255);
+  --muted: #f3f1ed;
+  --muted-foreground: #737373;
 
-  /* Accent — Cyan */
-  --accent: oklch(0.93 0.055 205);
-  --accent-foreground: oklch(0.27 0.07 245);
+  --accent: #fff0dc;
+  --accent-foreground: #c45f00;
 
-  /* Destructive */
-  --destructive: oklch(0.59 0.205 25);
+  --destructive: #dc2626;
 
-  /* Borders */
-  --border: oklch(0.89 0.018 250);
-  --input: oklch(0.89 0.018 250);
-  --ring: oklch(0.58 0.19 270);
+  --border: #dedbd5;
+  --input: #d6d2cb;
+  --ring: #f57c00;
 
-  /* Brand helper colors */
-  --brand-indigo: oklch(0.52 0.205 270);
-  --brand-purple: oklch(0.57 0.19 305);
-  --brand-cyan: oklch(0.72 0.15 205);
+  --brand-orange: #f57c00;
+  --brand-orange-light: #ffab4d;
+  --brand-orange-dark: #c95f00;
+  --brand-black: #171717;
 }
 
-/* =========================================================
-   DARK THEME
-   ========================================================= */
+/* Dark theme */
 
 .dark {
-  --background: oklch(0.13 0.018 255);
-  --foreground: oklch(0.96 0.008 250);
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
 
-  --card: oklch(0.175 0.022 255);
-  --card-foreground: oklch(0.96 0.008 250);
+  --card: #141414;
+  --card-foreground: #f5f5f5;
 
-  --popover: oklch(0.175 0.022 255);
-  --popover-foreground: oklch(0.96 0.008 250);
+  --popover: #181818;
+  --popover-foreground: #f5f5f5;
 
-  --primary: oklch(0.68 0.18 270);
-  --primary-foreground: oklch(0.13 0.018 255);
+  --primary: #ff8a00;
+  --primary-foreground: #0a0a0a;
 
-  --secondary: oklch(0.23 0.028 255);
-  --secondary-foreground: oklch(0.92 0.01 250);
+  --secondary: #202020;
+  --secondary-foreground: #f5f5f5;
 
-  --muted: oklch(0.22 0.022 255);
-  --muted-foreground: oklch(0.69 0.018 250);
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
 
-  --accent: oklch(0.25 0.055 215);
-  --accent-foreground: oklch(0.91 0.025 215);
+  --accent: #2b1b0b;
+  --accent-foreground: #ffb45c;
 
-  --destructive: oklch(0.67 0.18 25);
+  --destructive: #ef4444;
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.68 0.18 270);
+  --border: #292929;
+  --input: #303030;
+  --ring: #ff8a00;
 
-  --brand-indigo: oklch(0.68 0.18 270);
-  --brand-purple: oklch(0.68 0.17 305);
-  --brand-cyan: oklch(0.76 0.13 205);
+  --brand-orange: #ff8a00;
+  --brand-orange-light: #ffb45c;
+  --brand-orange-dark: #d96d00;
+  --brand-black: #080808;
 }
 
-/* =========================================================
-   BASE
-   ========================================================= */
+/* Base */
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
 
   html {
@@ -150,22 +127,24 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    min-height: 100vh;
+
+    background-color: var(--background);
+    color: var(--foreground);
 
     font-family: var(--font-sans);
     font-size: 15px;
     letter-spacing: -0.012em;
 
-    /* Subtle custom background */
     background-image:
       radial-gradient(
         circle at 0% 0%,
-        oklch(0.52 0.205 270 / 5%),
+        rgba(245, 124, 0, 0.07),
         transparent 28%
       ),
       radial-gradient(
         circle at 100% 100%,
-        oklch(0.72 0.15 205 / 4%),
+        rgba(245, 124, 0, 0.04),
         transparent 25%
       );
   }
@@ -176,8 +155,8 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading);
-    font-weight: 650;
+    font-family: var(--font-sans);
+    font-weight: 700;
     letter-spacing: -0.04em;
   }
 
@@ -197,25 +176,23 @@
   }
 
   ::selection {
-    background: oklch(0.52 0.205 270 / 20%);
-    color: oklch(0.20 0.025 260);
+    background: rgba(245, 124, 0, 0.25);
+    color: var(--foreground);
   }
 }
 
-/* =========================================================
-   FEEDBACKFLOW BRAND
-   ========================================================= */
+/* FeedbackFlow brand */
 
 .feedback-brand {
-  font-family: var(--font-heading);
-  font-weight: 750;
+  font-family: var(--font-sans);
+  font-weight: 800;
   letter-spacing: -0.055em;
 
   background: linear-gradient(
     110deg,
-    var(--brand-indigo),
-    var(--brand-purple) 55%,
-    var(--brand-cyan)
+    var(--brand-orange-light),
+    var(--brand-orange),
+    var(--brand-orange-dark)
   );
 
   -webkit-background-clip: text;
@@ -223,34 +200,30 @@
   color: transparent;
 }
 
-/* =========================================================
-   BRAND MARK
-   ========================================================= */
+/* Brand mark */
 
 .feedback-brand-mark {
   width: 34px;
   height: 34px;
+
   display: grid;
   place-items: center;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--brand-indigo),
-      var(--brand-purple)
-    );
+  background: linear-gradient(
+    135deg,
+    var(--brand-orange),
+    var(--brand-orange-dark)
+  );
 
-  color: white;
+  color: #ffffff;
 
   box-shadow:
-    0 7px 20px oklch(0.52 0.205 270 / 22%);
+    0 7px 24px rgba(245, 124, 0, 0.25);
 }
 
-/* =========================================================
-   CUSTOM FEEDBACK CARD
-   ========================================================= */
+/* Feedback cards */
 
 .feedback-card {
   position: relative;
@@ -259,11 +232,11 @@
 
   border: 1px solid var(--border);
 
-  border-radius: 1.2rem;
+  border-radius: 1rem;
 
   box-shadow:
-    0 1px 2px oklch(0.18 0.025 260 / 3%),
-    0 10px 30px oklch(0.18 0.025 260 / 4%);
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 12px 35px rgba(0, 0, 0, 0.06);
 
   transition:
     transform 180ms ease,
@@ -271,19 +244,22 @@
     box-shadow 180ms ease;
 }
 
+.dark .feedback-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
 .feedback-card:hover {
   transform: translateY(-3px);
 
-  border-color:
-    oklch(0.52 0.205 270 / 32%);
+  border-color: rgba(245, 124, 0, 0.4);
 
   box-shadow:
-    0 14px 38px oklch(0.52 0.205 270 / 9%);
+    0 16px 40px rgba(245, 124, 0, 0.1);
 }
 
-/* =========================================================
-   HERO SECTION
-   ========================================================= */
+/* Hero */
 
 .feedback-gradient {
   position: relative;
@@ -292,18 +268,18 @@
   background:
     radial-gradient(
       circle at 85% 10%,
-      oklch(0.76 0.14 205 / 28%),
+      rgba(255, 138, 0, 0.28),
       transparent 28%
     ),
     radial-gradient(
       circle at 15% 90%,
-      oklch(0.72 0.18 305 / 22%),
-      transparent 30%
+      rgba(217, 109, 0, 0.2),
+      transparent 32%
     ),
     linear-gradient(
       135deg,
-      oklch(0.43 0.21 270),
-      oklch(0.40 0.19 295)
+      #0a0a0a,
+      #18120c
     );
 }
 
@@ -311,106 +287,103 @@
   content: "";
 
   position: absolute;
-  width: 300px;
-  height: 300px;
 
-  right: -120px;
-  top: -120px;
+  width: 320px;
+  height: 320px;
+
+  right: -130px;
+  top: -130px;
 
   border-radius: 50%;
 
-  border: 1px solid oklch(1 0 0 / 15%);
+  border: 1px solid rgba(255, 138, 0, 0.25);
+
   box-shadow:
-    0 0 0 40px oklch(1 0 0 / 3%),
-    0 0 0 80px oklch(1 0 0 / 2%);
+    0 0 0 40px rgba(255, 138, 0, 0.05),
+    0 0 0 80px rgba(255, 138, 0, 0.025);
 
   pointer-events: none;
 }
 
-/* =========================================================
-   HERO GRID
-   ========================================================= */
+/* Hero grid */
 
 .feedback-grid-bg {
   background-image:
     linear-gradient(
-      oklch(0.52 0.205 270 / 6%) 1px,
+      rgba(255, 138, 0, 0.07) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      oklch(0.52 0.205 270 / 6%) 1px,
+      rgba(255, 138, 0, 0.07) 1px,
       transparent 1px
     );
 
   background-size: 34px 34px;
 }
 
-/* =========================================================
-   GLOW
-   ========================================================= */
+/* Glow */
 
 .feedback-glow {
   box-shadow:
-    0 0 0 1px oklch(0.52 0.205 270 / 8%),
-    0 20px 65px oklch(0.52 0.205 270 / 10%);
+    0 0 0 1px rgba(255, 138, 0, 0.12),
+    0 20px 65px rgba(255, 138, 0, 0.12);
 }
 
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+/* Buttons */
 
 .feedback-button {
-  border-radius: 0.8rem;
+  border-radius: 0.7rem;
 
   font-weight: 650;
 
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
-    background 160ms ease;
+    background 160ms ease,
+    border-color 160ms ease;
 }
 
 .feedback-button:hover {
   transform: translateY(-2px);
 
   box-shadow:
-    0 9px 24px oklch(0.52 0.205 270 / 18%);
+    0 9px 25px rgba(245, 124, 0, 0.2);
 }
 
 .feedback-button:active {
   transform: translateY(0);
 }
 
-/* =========================================================
-   INPUTS
-   ========================================================= */
+/* Inputs */
 
 .feedback-input {
-  border: 1px solid var(--border);
+  border: 1px solid var(--input);
 
-  border-radius: 0.8rem;
+  border-radius: 0.7rem;
 
   background: var(--card);
+  color: var(--foreground);
 
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease;
 }
 
+.feedback-input::placeholder {
+  color: var(--muted-foreground);
+}
+
 .feedback-input:focus {
   outline: none;
 
-  border-color:
-    oklch(0.52 0.205 270 / 60%);
+  border-color: rgba(245, 124, 0, 0.7);
 
   box-shadow:
-    0 0 0 3px oklch(0.52 0.205 270 / 10%);
+    0 0 0 3px rgba(245, 124, 0, 0.12);
 }
 
-/* =========================================================
-   STATUS BADGES
-   ========================================================= */
+/* Status badges */
 
 .feedback-status {
   display: inline-flex;
@@ -425,37 +398,46 @@
   line-height: 1;
 
   font-weight: 650;
-
   letter-spacing: 0.01em;
 }
 
-/* =========================================================
-   STATUS COLORS
-   ========================================================= */
-
 .feedback-status-pending {
-  background: oklch(0.94 0.06 90);
-  color: oklch(0.42 0.10 85);
+  background: rgba(234, 179, 8, 0.12);
+  color: #ca8a04;
+}
+
+.dark .feedback-status-pending {
+  color: #facc15;
 }
 
 .feedback-status-review {
-  background: oklch(0.92 0.055 250);
-  color: oklch(0.42 0.12 255);
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+}
+
+.dark .feedback-status-review {
+  color: #60a5fa;
 }
 
 .feedback-status-planned {
-  background: oklch(0.92 0.065 305);
-  color: oklch(0.42 0.12 305);
+  background: rgba(245, 124, 0, 0.13);
+  color: #c45f00;
+}
+
+.dark .feedback-status-planned {
+  color: #ffab4d;
 }
 
 .feedback-status-completed {
-  background: oklch(0.92 0.075 155);
-  color: oklch(0.36 0.12 155);
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
 }
 
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
+.dark .feedback-status-completed {
+  color: #4ade80;
+}
+
+/* Sidebar */
 
 [data-sidebar="sidebar"] {
   background: var(--card);
@@ -463,11 +445,18 @@
   border-right: 1px solid var(--border);
 
   box-shadow:
-    3px 0 20px oklch(0.18 0.025 260 / 2%);
+    3px 0 24px rgba(0, 0, 0, 0.06);
+}
+
+.dark [data-sidebar="sidebar"] {
+  background: #101010;
+
+  box-shadow:
+    3px 0 30px rgba(0, 0, 0, 0.3);
 }
 
 [data-sidebar="menu-button"] {
-  border-radius: 0.7rem;
+  border-radius: 0.65rem;
 
   font-weight: 500;
 
@@ -478,8 +467,7 @@
 }
 
 [data-sidebar="menu-button"]:hover {
-  background:
-    oklch(0.52 0.205 270 / 7%);
+  background: rgba(245, 124, 0, 0.08);
 
   color: var(--primary);
 }
@@ -488,8 +476,8 @@
   background:
     linear-gradient(
       90deg,
-      oklch(0.52 0.205 270 / 12%),
-      oklch(0.57 0.19 305 / 7%)
+      rgba(245, 124, 0, 0.15),
+      rgba(245, 124, 0, 0.05)
     );
 
   color: var(--primary);
@@ -500,21 +488,21 @@
     inset 3px 0 0 var(--primary);
 }
 
-/* =========================================================
-   TOP NAV
-   ========================================================= */
+/* Top navigation */
 
 .feedback-navbar {
-  background: oklch(1 0 0 / 78%);
+  background: color-mix(
+    in srgb,
+    var(--background) 86%,
+    transparent
+  );
 
   backdrop-filter: blur(16px);
 
   border-bottom: 1px solid var(--border);
 }
 
-/* =========================================================
-   STAT CARDS
-   ========================================================= */
+/* Stat cards */
 
 .feedback-stat {
   position: relative;
@@ -524,12 +512,13 @@
 
   border: 1px solid var(--border);
 
-  border-radius: 1rem;
+  border-radius: 0.9rem;
 
   padding: 1.25rem;
 
   transition:
     transform 180ms ease,
+    border-color 180ms ease,
     box-shadow 180ms ease;
 }
 
@@ -549,21 +538,21 @@
   background:
     linear-gradient(
       135deg,
-      oklch(0.52 0.205 270 / 10%),
-      oklch(0.72 0.15 205 / 7%)
+      rgba(245, 124, 0, 0.12),
+      rgba(217, 109, 0, 0.04)
     );
 }
 
 .feedback-stat:hover {
   transform: translateY(-2px);
 
+  border-color: rgba(245, 124, 0, 0.3);
+
   box-shadow:
-    0 10px 28px oklch(0.18 0.025 260 / 6%);
+    0 10px 30px rgba(0, 0, 0, 0.09);
 }
 
-/* =========================================================
-   DIVIDERS
-   ========================================================= */
+/* Dividers */
 
 .feedback-divider {
   height: 1px;
@@ -577,9 +566,52 @@
     );
 }
 
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
+/* Theme toggle */
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(245, 124, 0, 0.35);
+
+  border-radius: 0.65rem;
+
+  background: #171717;
+
+  color: #ff8a00;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+
+  background: #242424;
+
+  border-color: rgba(255, 138, 0, 0.65);
+
+  color: #ffb45c;
+
+  box-shadow:
+    0 7px 22px rgba(245, 124, 0, 0.18);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+/* Scrollbar */
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -591,40 +623,34 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background:
-    oklch(0.48 0.035 260 / 25%);
+  background: #a6a29b;
 
   border-radius: 999px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background:
-    oklch(0.52 0.205 270 / 45%);
+.dark ::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
 }
 
-/* =========================================================
-   LINKS
-   ========================================================= */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Links */
 
 a {
-  transition:
-    color 150ms ease;
+  transition: color 150ms ease;
 }
 
-/* =========================================================
-   FOCUS
-   ========================================================= */
+/* Focus */
 
 :focus-visible {
-  outline: 2px solid
-    oklch(0.52 0.205 270 / 65%);
+  outline: 2px solid rgba(245, 124, 0, 0.75);
 
   outline-offset: 2px;
 }
 
-/* =========================================================
-   EXISTING AUTH / SCULPTURE SUPPORT
-   ========================================================= */
+/* Auth */
 
 .auth-sculpture {
   position: relative;
@@ -647,16 +673,14 @@ a {
   background:
     radial-gradient(
       circle,
-      oklch(0.52 0.205 270 / 12%),
+      rgba(245, 124, 0, 0.13),
       transparent 68%
     );
 
   pointer-events: none;
 }
 
-/* =========================================================
-   WORKSPACE ART
-   ========================================================= */
+/* Workspace */
 
 .workspace-art {
   position: relative;
@@ -679,56 +703,21 @@ a {
   background:
     radial-gradient(
       circle,
-      oklch(0.72 0.15 205 / 10%),
+      rgba(245, 124, 0, 0.11),
       transparent 70%
     );
 
   pointer-events: none;
 }
 
-/* =========================================================
-   THEME TOGGLE
-   ========================================================= */
-
-.theme-toggle {
-  width: 36px;
-  height: 36px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid var(--border);
-
-  border-radius: 0.7rem;
-
-  background: var(--card);
-
-  transition:
-    background 160ms ease,
-    transform 160ms ease,
-    border-color 160ms ease;
-}
-
-.theme-toggle:hover {
-  background:
-    oklch(0.52 0.205 270 / 7%);
-
-  border-color:
-    oklch(0.52 0.205 270 / 25%);
-
-  transform: rotate(8deg);
-}
-
-/* =========================================================
-   CHAT PAGE LOADING
-   ========================================================= */
+/* Chat loading */
 
 .chat-loading {
   background:
     linear-gradient(
       90deg,
       transparent,
-      oklch(0.52 0.205 270 / 8%),
+      rgba(245, 124, 0, 0.08),
       transparent
     );
 
@@ -747,9 +736,7 @@ a {
   }
 }
 
-/* =========================================================
-   SIDEBAR COLLAPSE
-   ========================================================= */
+/* Sidebar collapse */
 
 .sidebar-collapse {
   transition:
@@ -758,9 +745,7 @@ a {
     opacity 180ms ease;
 }
 
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -1,21 +1,16 @@
 import {
-  ArrowRight,
-  ArrowUp,
   Check,
   ChevronDown,
-  Code2,
-  CreditCard,
-  FileCode2,
-  Globe,
-  Layers,
   MessageSquare,
   MoreHorizontal,
   Plus,
-  ShieldCheck,
-  Sparkles,
+  Target,
+  ThumbsUp,
+  ListChecks,
+  BarChart3,
+  CircleDot,
 } from "lucide-react"
 import type { ReactNode } from "react"
-import Link from "next/link"
 
 function ProductWindow({
   title,
@@ -40,191 +35,285 @@ function ProductWindow({
   )
 }
 
-function WorkspaceVisual() {
+function FeedbackVisual() {
   return (
-    <ProductWindow title="Workspace">
-      <div className="included-workspace-heading">
-        <span className="included-app-icon">
-          <Layers size={20} />
-        </span>
-        <div>
-          <strong>Acme Studio</strong>
-          <small>Your team, together.</small>
-        </div>
-        <ChevronDown size={15} />
-      </div>
-      <div className="included-mini-tabs">
-        <span>General</span>
-        <span data-selected>Team</span>
-        <span>Advanced</span>
-      </div>
-      <div className="included-people">
-        {[
-          { initials: "JD", name: "Jamie Davis", role: "Owner" },
-          { initials: "AL", name: "Alex Lee", role: "Admin" },
-          { initials: "SK", name: "Sam Kim", role: "Member" },
-        ].map((member) => (
-          <div className="included-person" key={member.initials}>
-            <span className="included-avatar">{member.initials}</span>
-            <strong>{member.name}</strong>
-            <span className="included-pill">{member.role}</span>
+    <ProductWindow title="Customer feedback">
+      <div className="included-feedback">
+        <div className="included-feedback-heading">
+          <div>
+            <strong>Feedback</strong>
+            <small>Customer requests</small>
           </div>
-        ))}
+          <button type="button">
+            <Plus size={15} />
+            New
+          </button>
+        </div>
+
+        <div className="included-feedback-item">
+          <span className="included-app-icon">
+            <MessageSquare size={18} />
+          </span>
+          <div>
+            <strong>Dark mode for reports</strong>
+            <small>Better visibility for users working at night</small>
+          </div>
+          <span className="included-pill">18 votes</span>
+        </div>
+
+        <div className="included-feedback-item">
+          <span className="included-app-icon">
+            <CircleDot size={18} />
+          </span>
+          <div>
+            <strong>Export analytics as CSV</strong>
+            <small>Requested by multiple customers</small>
+          </div>
+          <span className="included-pill">12 votes</span>
+        </div>
+
+        <div className="included-feedback-item">
+          <span className="included-app-icon">
+            <Target size={18} />
+          </span>
+          <div>
+            <strong>Custom notification settings</strong>
+            <small>Control which updates customers receive</small>
+          </div>
+          <span className="included-pill">8 votes</span>
+        </div>
       </div>
+
       <div className="included-window-footer">
-        <ShieldCheck size={14} /> A separate space for every team
+        <MessageSquare size={14} /> All customer requests in one place
       </div>
     </ProductWindow>
   )
 }
 
-function ChatVisual() {
+function VotingVisual() {
   return (
-    <ProductWindow title="AI chatbot">
-      <div className="included-chat">
-        <div className="included-chat-question">
-          Help me plan my next product launch.
+    <ProductWindow title="Feature request">
+      <div className="included-voting">
+        <div className="included-voting-card">
+          <div>
+            <span className="included-app-icon">
+              <ThumbsUp size={18} />
+            </span>
+            <div>
+              <strong>Advanced search</strong>
+              <small>Search feedback across projects and categories</small>
+            </div>
+          </div>
+
+          <button type="button" className="included-vote-button">
+            <ThumbsUp size={15} />
+            <strong>42</strong>
+            votes
+          </button>
         </div>
-        <div className="included-chat-answer">
+
+        <div className="included-voting-meta">
+          <span>Productivity</span>
+          <span>High priority</span>
+        </div>
+
+        <div className="included-voting-progress">
+          <div>
+            <span>Customer interest</span>
+            <strong>High</strong>
+          </div>
+          <div className="included-progress-track">
+            <span />
+          </div>
+        </div>
+
+        <div className="included-voting-comment">
+          <MessageSquare size={14} />
+          8 customers are discussing this request
+        </div>
+      </div>
+    </ProductWindow>
+  )
+}
+
+function PrioritizationVisual() {
+  return (
+    <ProductWindow title="Review & prioritize">
+      <div className="included-priority">
+        <div className="included-priority-header">
+          <div>
+            <strong>Feedback review</strong>
+            <small>Decide what moves forward</small>
+          </div>
+          <ChevronDown size={15} />
+        </div>
+
+        <div className="included-priority-item">
+          <span className="included-priority-indicator" />
+          <div>
+            <strong>Advanced search</strong>
+            <small>42 votes · Productivity</small>
+          </div>
+          <span className="included-priority-status">High</span>
+        </div>
+
+        <div className="included-priority-item">
+          <span className="included-priority-indicator" />
+          <div>
+            <strong>CSV exports</strong>
+            <small>27 votes · Analytics</small>
+          </div>
+          <span className="included-priority-status">Medium</span>
+        </div>
+
+        <div className="included-priority-item">
+          <span className="included-priority-indicator" />
+          <div>
+            <strong>Custom notifications</strong>
+            <small>18 votes · Settings</small>
+          </div>
+          <span className="included-priority-status">Low</span>
+        </div>
+      </div>
+
+      <div className="included-window-footer">
+        <ListChecks size={14} /> Turn feedback into actionable priorities
+      </div>
+    </ProductWindow>
+  )
+}
+
+function RoadmapVisual() {
+  return (
+    <ProductWindow title="Product roadmap">
+      <div className="included-roadmap">
+        <div className="included-roadmap-column">
+          <span className="included-roadmap-label">NOW</span>
+          <div className="included-roadmap-card">
+            <strong>Advanced search</strong>
+            <small>In Progress</small>
+          </div>
+          <div className="included-roadmap-card">
+            <strong>CSV exports</strong>
+            <small>In Progress</small>
+          </div>
+        </div>
+
+        <div className="included-roadmap-column">
+          <span className="included-roadmap-label">NEXT</span>
+          <div className="included-roadmap-card">
+            <strong>Custom notifications</strong>
+            <small>Planned</small>
+          </div>
+          <div className="included-roadmap-card">
+            <strong>Team reports</strong>
+            <small>Planned</small>
+          </div>
+        </div>
+
+        <div className="included-roadmap-column">
+          <span className="included-roadmap-label">PLANNED</span>
+          <div className="included-roadmap-card">
+            <strong>Mobile dashboard</strong>
+            <small>Planned</small>
+          </div>
+        </div>
+      </div>
+    </ProductWindow>
+  )
+}
+
+function DiscussionVisual() {
+  return (
+    <ProductWindow title="Feedback discussion">
+      <div className="included-discussion">
+        <div className="included-discussion-request">
           <span className="included-app-icon">
-            <Sparkles size={18} />
+            <MessageSquare size={18} />
           </span>
           <div>
-            <strong>Let’s turn your idea into a plan.</strong>
+            <strong>Advanced search</strong>
+            <small>42 votes · In Progress</small>
+          </div>
+        </div>
+
+        <div className="included-comment">
+          <span className="included-avatar">JD</span>
+          <div>
+            <strong>Jamie Davis</strong>
             <p>
-              Start with your audience, define the first release, and make a
-              little room for feedback.
+              This would make finding older feedback much easier for our team.
             </p>
-            <span className="included-chat-cursor" />
           </div>
         </div>
-        <div className="included-chat-compose">
-          <span>Ask a follow-up…</span>
+
+        <div className="included-comment">
+          <span className="included-avatar">AL</span>
+          <div>
+            <strong>Alex Lee</strong>
+            <p>
+              Agreed. We are planning this for the next release.
+            </p>
+          </div>
+        </div>
+
+        <div className="included-comment-compose">
+          <span>Add a comment...</span>
           <span className="included-send">
-            <ArrowUp size={16} />
+            <MessageSquare size={15} />
           </span>
-        </div>
-        <div className="included-chat-details">
-          <MessageSquare size={12} /> Saved conversations{" "}
-          <span>Streaming responses</span>
         </div>
       </div>
     </ProductWindow>
   )
 }
 
-function IntegrationsVisual() {
+function InsightsVisual() {
   return (
-    <ProductWindow title="Integrations">
-      <div className="included-integrations">
-        <div className="included-connection">
-          <span className="included-app-icon">
-            <Code2 size={20} />
-          </span>
-          <div>
-            <strong>REST API</strong>
-            <small>Build on your workspace</small>
+    <ProductWindow title="Feedback insights">
+      <div className="included-insights">
+        <div className="included-insight-grid">
+          <div className="included-insight-card">
+            <small>Total feedback</small>
+            <strong>248</strong>
+            <span>+18% this month</span>
           </div>
-          <span className="included-pill">API key</span>
-        </div>
-        <div className="included-endpoint">
-          <span>GET</span>
-          <code>/api/v1/workspace</code>
-          <span>200</span>
-        </div>
-        <div className="included-connection">
-          <span className="included-app-icon">
-            <Globe size={20} />
-          </span>
-          <div>
-            <strong>MCP</strong>
-            <small>Connect your AI tools</small>
-          </div>
-          <span className="included-pill">OAuth</span>
-        </div>
-        <div className="included-tool-list">
-          <span>
-            <Check size={13} /> Read details
-          </span>
-          <span>
-            <Check size={13} /> Rename workspace
-          </span>
-        </div>
-      </div>
-      <div className="included-window-footer">
-        <ShieldCheck size={14} /> Access scoped to your workspace
-      </div>
-    </ProductWindow>
-  )
-}
 
-function BillingVisual() {
-  return (
-    <ProductWindow title="Subscription billing">
-      <div className="included-billing">
-        <div className="included-connection">
-          <span className="included-app-icon">
-            <CreditCard size={20} />
-          </span>
-          <div>
-            <strong>Workspace subscription</strong>
-            <small>Acme Studio</small>
+          <div className="included-insight-card">
+            <small>Total votes</small>
+            <strong>1,482</strong>
+            <span>+24% this month</span>
           </div>
-        </div>
-        <div className="included-billing-flow">
-          <span>
-            <Check size={14} /> Checkout
-          </span>
-          <ArrowRight size={14} />
-          <span>
-            <Check size={14} /> Subscribed
-          </span>
-        </div>
-        <div className="included-billing-line">
-          <span>Billing interval</span>
-          <strong>Monthly / Yearly</strong>
-        </div>
-        <div className="included-billing-line">
-          <span>Payment provider</span>
-          <strong>Stripe</strong>
-        </div>
-        <div className="included-portal">
-          Customer portal <ArrowRight size={15} />
-        </div>
-      </div>
-    </ProductWindow>
-  )
-}
 
-function AgentVisual() {
-  return (
-    <ProductWindow title="Your coding agent">
-      <div className="included-agent">
-        <div className="included-agent-prompt">
-          <Sparkles size={17} />
-          <p>
-            Add a client portal to my app. Use the existing workspaces and
-            permissions.
-          </p>
-        </div>
-        <div className="included-agent-context">
-          <FileCode2 size={14} /> Project instructions <span>+</span> Your
-          source code
-        </div>
-        <div className="included-agent-plan">
-          <small>EXAMPLE BUILD PLAN</small>
-          <div>
-            <Plus size={14} /> Create the client portal pages
+          <div className="included-insight-card">
+            <small>Completed</small>
+            <strong>36</strong>
+            <span>Requests delivered</span>
           </div>
-          <div>
-            <Plus size={14} /> Extend the workspace data model
-          </div>
-          <div>
-            <ShieldCheck size={14} /> Verify access across workspaces
+
+          <div className="included-insight-card">
+            <small>Under review</small>
+            <strong>42</strong>
+            <span>Requests awaiting review</span>
           </div>
         </div>
-        <div className="included-window-footer">
-          <Code2 size={14} /> Your foundation. Your next feature.
+
+        <div className="included-insight-chart">
+          <div>
+            <span>Feedback activity</span>
+            <BarChart3 size={17} />
+          </div>
+
+          <div className="included-chart-bars">
+            <i style={{ height: "38%" }} />
+            <i style={{ height: "52%" }} />
+            <i style={{ height: "46%" }} />
+            <i style={{ height: "68%" }} />
+            <i style={{ height: "58%" }} />
+            <i style={{ height: "82%" }} />
+            <i style={{ height: "74%" }} />
+          </div>
         </div>
       </div>
     </ProductWindow>
@@ -233,108 +322,114 @@ function AgentVisual() {
 
 const features = [
   {
-    id: "workspaces",
-    title: "Workspaces & authentication",
+    id: "feedback",
+    title: "Collect customer feedback",
     description:
-      "Sign-in, team access, and account settings, connected through Supabase.",
+      "Give customers a simple way to share ideas, requests, and problems directly with your team.",
     bullets: [
-      "Email/password and magic-link sign-in",
-      "Google OAuth — configure your Supabase provider",
-      "Multiple workspaces, invitations, and team roles",
-      "Profile photos, workspace logos, and notification preferences",
+      "Submit feature requests and product ideas",
+      "Organize feedback with categories",
+      "Keep customer requests in one central place",
     ],
-    href: "/#demo",
-    link: "Explore the workspace",
-    visual: WorkspaceVisual,
+    visual: FeedbackVisual,
     label:
-      "Sample workspace showing three teammates with owner, admin, and member roles",
+      "Feedback dashboard showing customer requests, categories, and vote counts",
   },
   {
-    id: "ai-chat",
-    title: "AI chatbot & infrastructure",
-    description: "A working chatbot you can customize or remove.",
-    bullets: [
-      "Streaming chat with Vercel AI SDK",
-      "Choose your OpenRouter model in configuration",
-      "Saved conversations and searchable chat history",
-      "Workspace credits and token/cost tracking",
-    ],
-    href: "/#demo",
-    link: "Explore the AI demo",
-    visual: ChatVisual,
-    label:
-      "Illustrated AI conversation with a streaming response and follow-up composer",
-  },
-  {
-    id: "integrations",
-    title: "API & MCP",
-    description: "Connect external apps and AI tools to your product.",
-    bullets: [
-      "REST API and MCP server with workspace examples",
-      "Workspace API keys with read/write permissions",
-      "OAuth connections, token refresh, and revocation",
-      "OpenAPI reference and public documentation",
-    ],
-    href: "/docs/api",
-    link: "Explore the integrations",
-    visual: IntegrationsVisual,
-    label:
-      "REST API and MCP illustration showing workspace-scoped access and example operations",
-  },
-  {
-    id: "subscriptions",
-    title: "Subscription payments",
-    description: "Subscription billing for each workspace, powered by Stripe.",
-    bullets: [
-      "Stripe Checkout and customer portal",
-      "Monthly and yearly workspace plans",
-      "Plan changes, invoices, and cancellation",
-      "Webhook synchronization and test/live setup",
-    ],
-    href: "/pricing",
-    link: "Explore subscription plans",
-    visual: BillingVisual,
-    label:
-      "Illustrated subscription flow from Stripe Checkout to a workspace subscription and customer portal",
-  },
-  {
-    id: "coding-agent",
-    title: "Build with your AI agent",
+    id: "voting",
+    title: "Let customers vote",
     description:
-      "Give your coding agent source code and clear project context.",
+      "Let customers show which ideas matter most so your team can understand demand at a glance.",
     bullets: [
-      "Next.js and TypeScript source code",
-      "61 installed shadcn/ui components",
-      "AGENTS.md instructions and architecture docs",
-      "Kickstart setup and customization guides",
+      "Upvote important feedback requests",
+      "See customer interest through vote counts",
+      "Identify highly requested improvements",
     ],
-    href: "/docs",
-    link: "Explore the documentation",
-    visual: AgentVisual,
+    visual: VotingVisual,
     label:
-      "Example coding-agent prompt and proposed plan for extending the starter with a client portal",
+      "Feature request showing customer votes, priority, and discussion activity",
+  },
+  {
+    id: "prioritization",
+    title: "Review & prioritize",
+    description:
+      "Turn raw customer feedback into clear product decisions and actionable priorities.",
+    bullets: [
+      "Review incoming feedback",
+      "Assign categories and priorities",
+      "Move valuable requests into planned work",
+    ],
+    visual: PrioritizationVisual,
+    label:
+      "Feedback review screen showing requests with different priority levels",
+  },
+  {
+    id: "roadmap",
+    title: "Build a clear product roadmap",
+    description:
+      "Make product progress visible to both your team and your customers.",
+    bullets: [
+      "Organize work into Now, Next, and Planned",
+      "Track requests from Under Review to Completed",
+      "Give customers visibility into upcoming improvements",
+    ],
+    visual: RoadmapVisual,
+    label:
+      "Product roadmap organized into Now, Next, and Planned columns",
+  },
+  {
+    id: "discussions",
+    title: "Keep feedback conversations connected",
+    description:
+      "Keep customer discussions attached to the requests that started them.",
+    bullets: [
+      "Discuss individual feedback requests",
+      "Add context and clarification",
+      "Keep customer conversations organized",
+    ],
+    visual: DiscussionVisual,
+    label:
+      "Feedback discussion showing customer comments attached to a feature request",
+  },
+  {
+    id: "insights",
+    title: "Understand feedback trends",
+    description:
+      "Use feedback activity and customer votes to understand what your users are asking for.",
+    bullets: [
+      "Track feedback and voting activity",
+      "Monitor requests by status and category",
+      "Understand recurring customer needs",
+    ],
+    visual: InsightsVisual,
+    label:
+      "Feedback insights dashboard showing feedback, votes, completed requests, and activity",
   },
 ]
 
 export function IncludedFeatures() {
   return (
     <section
-      id="product"
+      id="features"
       className="marketing-section marketing-container included-section"
-      aria-labelledby="product-title"
+      aria-labelledby="features-title"
     >
       <div className="section-heading">
-        <span className="marketing-eyebrow">WHAT’S INCLUDED</span>
-        <h2 id="product-title">
-          The foundation is here.
+        <span className="marketing-eyebrow">HOW FEEDBACKFLOW WORKS</span>
+
+        <h2 id="features-title">
+          From customer feedback
           <br />
-          <span>Make the product yours.</span>
+          <span>to better product decisions.</span>
         </h2>
+
         <p>
-          From your first customer to your next feature. Start with the systems
-          your SaaS needs, already connected and ready to customize.
+          Collect requests, understand what customers care about, prioritize
+          the right ideas, and keep everyone aligned with a clear product
+          roadmap.
         </p>
       </div>
+
       <div className="included-features">
         {features.map(
           ({
@@ -342,8 +437,6 @@ export function IncludedFeatures() {
             title,
             description,
             bullets,
-            href,
-            link,
             visual: Visual,
             label,
           }) => (
@@ -357,9 +450,12 @@ export function IncludedFeatures() {
                   <Visual />
                 </div>
               </div>
+
               <div className="included-copy">
                 <h3 id={`included-${id}`}>{title}</h3>
+
                 <p>{description}</p>
+
                 <ul className="included-bullets" role="list">
                   {bullets.map((bullet) => (
                     <li key={bullet}>
@@ -368,10 +464,6 @@ export function IncludedFeatures() {
                     </li>
                   ))}
                 </ul>
-                <Link href={href} className="marketing-inline-link">
-                  {link}
-                  <ArrowRight size={15} />
-                </Link>
               </div>
             </article>
           )

@@ -1,5 +1,6 @@
 export const site = {
-  name: process.env.APP_NAME || "Forma",
+  name: process.env.APP_NAME || "FeedbackFlow",
+
   description:
-    "A Next.js SaaS starter with authentication, workspaces, subscription billing, and customizable UI.",
+    "FeedbackFlow helps teams collect customer feedback, gather votes, prioritize product ideas, and manage their roadmap in one place.",
 }

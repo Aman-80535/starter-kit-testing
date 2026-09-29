@@ -14,24 +14,15 @@ const footerGroups = [
   {
     title: "Product",
     links: [
-      { label: "Overview", href: "/#product" },
+      { label: "Features", href: "/#features" },
       { label: "Pricing", href: "/pricing" },
-      { label: "FAQs", href: "/faq" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Documentation", href: "/docs" },
-      { label: "Getting started", href: "/docs/getting-started/setup" },
-      { label: "API reference", href: "/docs/api" },
-      { label: "MCP guide", href: "/docs/mcp" },
+      { label: "FAQ", href: "/faq" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "Blog", href: "/blog" },
+      { label: "Give Feedback", href: "/feedback" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -45,39 +36,49 @@ export async function MarketingShell({
   cookieConsent?: boolean
 }) {
   const account = await publicAccount()
+
   return (
     <div className="marketing-page">
       <a href="#main-content" className="marketing-skip-link">
         Skip to content
       </a>
+
       <header className="marketing-header">
         <div className="marketing-container marketing-header-inner">
           <Brand />
-          <MarketingNavigation links={marketing.navigation} account={account} />
+          <MarketingNavigation
+            links={marketing.navigation}
+            account={account}
+          />
         </div>
       </header>
+
       <main id="main-content">{children}</main>
+
       <footer className="marketing-footer">
         <div className="marketing-container">
           <div className="footer-main">
             <div className="footer-brand">
               <Brand />
-              <p>Your next idea starts here.</p>
+
+              <p>Turn customer feedback into better products.</p>
+
               <span>
-                The Next.js SaaS starter with the essentials already connected.
-                Build the part that makes it yours.
+                Collect feedback, understand what your customers want, and
+                turn the most valuable ideas into a clear product roadmap.
               </span>
-              <Link
-                className="footer-brand-link"
-                href="/docs/getting-started/quickstart"
-              >
-                Start building <ArrowUpRight size={16} aria-hidden="true" />
+
+              <Link className="footer-brand-link" href="/feedback">
+                Give Feedback
+                <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
             </div>
+
             <nav className="footer-navigation" aria-label="Footer">
               {footerGroups.map((group) => (
                 <div className="footer-group" key={group.title}>
                   <h2>{group.title}</h2>
+
                   <ul role="list">
                     {group.links.map((link) => (
                       <li key={link.href}>
@@ -89,16 +90,20 @@ export async function MarketingShell({
               ))}
             </nav>
           </div>
+
           <div className="footer-bottom">
             <small>
               © {new Date().getFullYear()} {site.name}. All rights reserved.
             </small>
+
             <div className="footer-utilities">
               <nav className="footer-legal" aria-label="Legal">
-                <Link href="/privacy">Privacy policy</Link>
-                <Link href="/terms">Terms of service</Link>
+                <Link href="/privacy">Privacy Policy</Link>
+                <Link href="/terms">Terms of Service</Link>
               </nav>
+
               {cookieConsent && <CookieConsent />}
+
               <div className="footer-theme">
                 <ThemeToggle />
               </div>
@@ -124,11 +129,13 @@ export function PageIntro({
   return (
     <div className="public-page-intro">
       <span className="marketing-eyebrow">{eyebrow}</span>
+
       <h1>
         {title}
         <br />
         <span>{accent}</span>
       </h1>
+
       <p>{children}</p>
     </div>
   )

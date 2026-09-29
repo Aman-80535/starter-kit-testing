@@ -65,7 +65,7 @@ export function CookieConsent() {
 
   return (
     <>
-      <button
+      {/* <button
         ref={preferencesButton}
         type="button"
         className="cookie-preferences-link"
@@ -79,7 +79,7 @@ export function CookieConsent() {
         }}
       >
         Cookie preferences
-      </button>
+      </button> */}
       {phase !== "hidden" && (
         <aside
           id="cookie-consent"

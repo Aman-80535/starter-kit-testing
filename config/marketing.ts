@@ -1,47 +1,47 @@
 /** Marketing copy. Pricing reads the shared application billing catalog. */
+
 export const marketing = {
-  title: "Build your SaaS. Skip the boilerplate.",
+  title: "Turn customer feedback into products people love.",
+
   description:
-    "A Next.js SaaS starter with authentication, team workspaces, Stripe billing, and a customizable UI. Connect your services and focus on the features your customers need.",
-  navigation: [
-    { label: "Product", href: "/#product" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "FAQs", href: "/faq" },
-    { label: "Contact", href: "/contact" },
-    { label: "Docs", href: "/docs" },
-    { label: "Blog", href: "/blog" },
-    { label: "Feedback", href: "/feedback" },
-  ],
+    "FeedbackFlow helps product teams collect customer feedback, let users vote and discuss ideas, prioritize requests, and track them through a clear product roadmap.",
+
+navigation: [
+  { label: "Features", href: "/#features" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "FAQ", href: "/faq" },
+],
+
   faqs: [
     {
-      question: "What exactly is Forma?",
+      question: "What is FeedbackFlow?",
       answer:
-        "Forma is a Next.js SaaS starter with authentication, organizations, Stripe subscription billing, and a customizable interface. You get application source code and setup documentation, so you can build your product without implementing those systems from scratch.",
+        "FeedbackFlow is a customer feedback management platform that helps teams collect, organize, prioritize, and discuss product feedback in one place.",
     },
     {
-      question: "Do I need to know how to code?",
+      question: "Can customers vote on feedback?",
       answer:
-        "Basic development experience helps: you’ll configure service accounts, run a Next.js application, and edit the source code. You can use a coding assistant to build your features. The repository includes setup guides and project instructions to support that workflow.",
+        "Yes. Customers can vote on feedback requests, helping your team understand which ideas are most important to your users.",
     },
     {
-      question: "What do I need to get started?",
+      question: "How does the product roadmap work?",
       answer:
-        "A supported Node.js installation and your own hosted service accounts. The setup guide covers Supabase, email, Stripe, and optional integrations. Account verification, sending-domain setup, and live payment activation can require manual steps.",
+        "FeedbackFlow lets teams organize prioritized feedback into roadmap stages such as Now, Next, and Planned, while tracking individual requests through statuses like Under Review, Planned, In Progress, and Completed.",
     },
     {
-      question: "Where does my application run?",
+      question: "Can customers discuss feedback?",
       answer:
-        "Next.js runs on your computer during development and is designed for deployment to Vercel. Supabase stays hosted throughout. Your provider accounts and credentials stay under your control; there is no seller-operated setup service.",
+        "Yes. Feedback items can include discussions and comments so customers and product teams can provide additional context and keep conversations connected to each request.",
     },
     {
-      question: "Can I change the design and features?",
+      question: "Can my team prioritize customer requests?",
       answer:
-        "Yes. The source uses Next.js, TypeScript, Tailwind, and shadcn/ui. Change the branding and interface, extend the product, or follow the documentation to remove the optional AI example. You maintain your customized copy.",
+        "Yes. Teams can review feedback, consider customer votes and discussions, assign categories and priorities, and decide which requests should move into the product roadmap.",
     },
     {
-      question: "Are hosting and service costs included?",
+      question: "Do I need a separate tool for roadmap management?",
       answer:
-        "No. Hosting, database, email, payment processing, and any AI usage are billed by your providers. The starter purchase offer, license, and support terms are still being finalized and will be published before purchasing opens.",
+        "No. FeedbackFlow connects feedback collection and roadmap management so your team can move from customer requests to planned and completed work in the same product.",
     },
   ],
 }
@@ -68,8 +68,8 @@ export const billingFaqs = [
       "No. The optional AI example gives each workspace 100 credits once. These are separate from billing and do not renew when a subscription is purchased or renewed.",
   },
   {
-    question: "Does this pricing purchase the starter source code?",
+    question: "Does pricing include access to FeedbackFlow?",
     answer:
-      "These plans are workspace subscriptions in the application. The starter source-code purchase offer and license are separate and will be published before sales open.",
+      "Yes. The workspace subscription provides access to the FeedbackFlow application according to the selected plan.",
   },
 ]
