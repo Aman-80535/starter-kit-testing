@@ -67,6 +67,8 @@ export async function signIn(
       password,
     })
     if (error)
+    {
+console.error("Error signing in user", error)
       return {
         error:
           error.code === "invalid_credentials"
@@ -74,6 +76,7 @@ export async function signIn(
             : authError(error.code),
         values: { email },
       }
+    }
   } catch {
     return {
       error: "We couldn't reach the sign-in service. Please try again.",
