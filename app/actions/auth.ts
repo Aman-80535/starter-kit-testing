@@ -131,12 +131,17 @@ export async function signUp(
         emailRedirectTo: `${appUrl()}/auth/confirm`,
       },
     })
-    if (error) return { error: authError(error.code), values }
+    if (error) {
+      console.error("Error signing up user", error)
+      return { error: authError(error.code), values }
+    }
     // Supabase's installed setting is authoritative; .env alone cannot bypass it.
     hasSession = Boolean(data.session && data.user?.email_confirmed_at)
     signedUpUser = data.user || undefined
     if (hasSession && data.user) await sendWelcome(data.user)
-  } catch {
+
+  } catch (error) {
+    console.error("Error signing up user", error)
     return {
       error: "We couldn't create your account right now. Please try again.",
       values,

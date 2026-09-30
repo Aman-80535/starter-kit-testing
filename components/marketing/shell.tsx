@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { Brand } from "@/components/brand"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { MarketingNavigation } from "./navigation"
-import { CookieConsent } from "./cookie-consent"
+// import { CookieConsent } from "./cookie-consent"
 import { marketing } from "@/config/marketing"
 import { site } from "@/config/site"
 import { publicAccount } from "@/lib/auth"
@@ -102,7 +102,7 @@ export async function MarketingShell({
                 <Link href="/terms">Terms of Service</Link>
               </nav>
 
-              {cookieConsent && <CookieConsent />}
+              {/* {cookieConsent && <CookieConsent />} */}
 
               <div className="footer-theme">
                 <ThemeToggle />
